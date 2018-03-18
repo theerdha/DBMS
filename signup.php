@@ -1,3 +1,6 @@
+<?php 
+	$user_type = $_GET['user_type'];
+?>
 <html>
 	<head>
 		<title>Swachh KGP</title>

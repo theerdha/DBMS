@@ -1,3 +1,6 @@
+<?php 
+	$user_type = $_GET['user_type'];
+?>
 <html>
 	<head>
 		<title>Respondent</title>
@@ -36,7 +39,7 @@
 	<br><br>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
-		<form action = "login_db.php" method = "POST">
+		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
 			<input name = "email" placeholder = "Email"><br><br>
 			<input name = "password" type = "password" placeholder = "Password"><br><br>
 			<button type = "submit">Submit</button>

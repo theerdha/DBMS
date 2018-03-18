@@ -33,12 +33,12 @@
 	</head>
 	<body style = "font-family: 'Nixie One'; font-size: 70px; color: #FFFFFF;"> 
 		Are you a <br/><br/>
-		<a href = signin.php  style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Respondent</span>
+		<a href = "signin.php?user_type=0"  style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Respondent</span>
 		<br/>
 		or<br/>
-		<a href = signin_with_signup.php style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Grievant</span> <br/><br/>
+		<a href = "signin_with_signup.php?user_type=1" style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Grievant</span> <br/><br/>
 
-		<a href = signin.php style = "font-family: 'Cabin Sketch';font-size: 25px; color: #FFFFFF'">Administrator</span>
+		<a href = "signin.php?user_type=0" style = "font-family: 'Cabin Sketch';font-size: 25px; color: #FFFFFF'">Administrator</span>
 
 	</body>
 </html>

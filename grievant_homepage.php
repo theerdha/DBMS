@@ -1,3 +1,6 @@
+<?php 
+	$name = $_GET['name'];
+?>
 <html>
 	<head>
 		<title>grievant homepage</title>
@@ -42,7 +45,7 @@
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
 	<br><br>
 	<center>
-		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome User!</h3>
+		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome <?php echo $name; ?>!</h3>
 		<div> All Complaints  and  Status </div><br/> <br/>
 		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">New Complaint</span>  &nbsp; &nbsp; &nbsp;
 		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">edit profile</span>  &nbsp; &nbsp; &nbsp;
