@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Swachh KGP</title>
+		<title>Who are you</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -23,16 +23,22 @@
     			display: table-cell;
     			vertical-align: middle;
 			}
-			.center {
-    			margin: auto;
-			    width: 25%;
+
+			a:link, a:visited {
+				color: white;
+				text-decoration: none;
 			}
+
 		</style>
 	</head>
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:center; color: #FFFFFF;">
-		Swachh KGP<br/><br/>
-	
-				<a href = "usertype.php"; style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Continue</a><br><br>
-				
+	<body style = "font-family: 'Nixie One'; font-size: 70px; color: #FFFFFF;"> 
+		Are you a <br/><br/>
+		<a href = signin.php  style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Respondent</span>
+		<br/>
+		or<br/>
+		<a href = signin_with_signup.php style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Grievant</span> <br/><br/>
+
+		<a href = signin.php style = "font-family: 'Cabin Sketch';font-size: 25px; color: #FFFFFF'">Administrator</span>
+
 	</body>
 </html>
