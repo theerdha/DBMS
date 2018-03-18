@@ -1,9 +1,6 @@
-<?php 
-	$user_type = $_GET['user_type'];
-?>
 <html>
 	<head>
-		<title>Grievant</title>
+		<title>New Complaint</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -35,15 +32,20 @@
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/>
 	<br><br>
 	<center>
-		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
-		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
-			<input name = "email" placeholder = "Email"><br><br>
-			<input name = "password" type = "password" placeholder = "Password"><br><br>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">New Complaint</h3>
+		<form action = "complaint.php" method = "POST">
+			<select name = "Complaint">
+			  <option value="Garbage">garbage</option>
+			  <option value="Public Nuisance">public_nuisance</option>
+			  <option value="Mess related">mess</option>
+			</select> </br>
+			<input name = "Location" placeholder = "Location">
+			<button type = "Cordinates">Get my cordinates</button><br/>
+			<button type = "Picture">Upload a picture</button><br/><br/>
 			<button type = "submit">Submit</button>
 		</form>	
-		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Invalid Credentials </p>
 	</center>
 </html>
