@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Who are you</title>
+		<title>Respondent</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -31,14 +31,16 @@
 
 		</style>
 	</head>
-	<body style = "font-family: 'Nixie One'; font-size: 70px; color: #FFFFFF;"> 
-		Are you a <br/><br/>
-		<a href = respondent.php style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Respondent</span>
-		<br/>
-		or<br/>
-		<a href = griev.php style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #FFFFFF'">Grievant</span> <br/><br/><br/><br/>
 
-		<a href = admin.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">Administrator</span>
-
-	</body>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
+	<br><br>
+	<center>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
+		<form action = "login_db.php" method = "POST">
+			<input name = "email" placeholder = "Email"><br><br>
+			<input name = "password" type = "password" placeholder = "Password"><br><br>
+			<button type = "submit">Submit</button>
+		</form>
+		<a href = signup.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">not a registered user?</span>
+	</center>
 </html>

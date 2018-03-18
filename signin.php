@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Swachh KGP</title>
+		<title>Grievant</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -23,21 +23,23 @@
     			display: table-cell;
     			vertical-align: middle;
 			}
-			.center {
-    			margin: auto;
-			    width: 25%;
+
+			a:link, a:visited {
+				color: white;
+				text-decoration: none;
 			}
+
 		</style>
 	</head>
 
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
 	<br><br>
 	<center>
-		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Signup as a respondent! We will reach out to you</h3>
-		<form action = "signup_resp_backend.php" method = "POST">
-			<input name = "name" placeholder = "Name"><br><br>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
+		<form action = "login_db.php" method = "POST">
 			<input name = "email" placeholder = "Email"><br><br>
 			<input name = "password" type = "password" placeholder = "Password"><br><br>
 			<button type = "submit">Submit</button>
-		</form>
+		</form>	
 	</center>
+</html>
