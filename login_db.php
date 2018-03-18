@@ -30,13 +30,24 @@ $numResults = 1;
 // Query to get name column
 if($numResults == 1)
 {	
-	$permission = 1;	
+	$permission = 0;	
 }
-if($permission == 1 && $user_type == 1){
-	header ("Location: grievant_homepage.php?name=$username"); 
+
+if($user_type == 0){
+	if($permission == 1 ){
+		header ("Location: respondant_homepage.php?name=$username"); 	
+	}
+	else{
+		header ("Location: signin.php?failure=true&user_type=$user_type");
+	}
 }
-if($permission == 1 && $user_type == 0){
-	header ("Location: respondant_homepage.php?name=$username"); 	
+elseif($user_type == 1){
+	if($permission == 1){
+		header ("Location: grievant_homepage.php?name=$username"); 
+	}
+	else{
+		header ("Location: signin_with_signup.php?failure=true&user_type=$user_type");
+	}
 }
 
 ?>

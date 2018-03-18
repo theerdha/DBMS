@@ -1,5 +1,11 @@
 <?php 
 	$user_type = $_GET['user_type'];
+	//echo $_GET['failure'];
+	$status = "none";
+	if($_GET['failure'] == "true"){
+		$status = "inline";
+	}
+	//echo $status;
 ?>
 <html>
 	<head>
@@ -45,6 +51,6 @@
 			<button type = "submit">Submit</button>
 		</form>
 		<a href = signup.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">not a registered user?</span>
-		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Invalid credentials </p>
+		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status ?>;"> Invalid credentials </p>
 	</center>
 </html>

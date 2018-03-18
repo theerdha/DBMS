@@ -11,7 +11,7 @@ if (mysqli_connect_errno())
 $name = $_POST["name"];
 $email = $_POST["email"];
 $password = $_POST["password"];
-
+// create aadhar number
 $password = md5($password);
 
 $query = "SELECT * FROM users WHERE email='$email'";
