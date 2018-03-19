@@ -1,6 +1,6 @@
 <?php
 
-//$con = mysqli_connect("localhost","root","qwerty123","dbms-demo");
+//$con = mysqli_connect("localhost","root","Bsaditya@1998","dbms_demo");
 $user_type = $_GET["user_type"];
 /*
 if (mysqli_connect_errno())
