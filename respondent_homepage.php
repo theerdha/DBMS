@@ -3,7 +3,7 @@
 ?>
 <html>
 	<head>
-		<title>grievant homepage</title>
+		<title>respondent homepage</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -52,14 +52,14 @@
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
-	<br><br>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/>
 	<center>
 		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome <?php echo $name; ?>!</h3>
-		<div> All Complaints  and  Status </div><br/> <br/>
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">New Complaint</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">edit profile</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">logout</span>
+		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Your current rating is  <?php echo $name; ?><p>
+		<div>Complaints with status 0 <button class="button">Take up</button> </div><br/> <br/>
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">View my solved Complaints</span>  &nbsp; &nbsp; &nbsp;
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">edit profile</span>  &nbsp; &nbsp; &nbsp;
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">logout</span>
 		
 	</center>
 </html>
