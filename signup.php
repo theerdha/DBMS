@@ -1,5 +1,9 @@
 <?php 
 	$user_type = $_GET['user_type'];
+	$status = "none";
+	if($_GET['failure'] == "true"){
+		$status = "inline";
+	}
 ?>
 <html>
 	<head>
@@ -45,5 +49,5 @@
 			<button type = "submit">Submit</button>
 			<button>Back</button>
 		</form>
-		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> User Already exists! </p>
+		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status ?>;"> User Already exists! </p>
 	</center>

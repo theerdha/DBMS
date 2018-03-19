@@ -92,7 +92,7 @@ END
 */
 
 #signup
-INSERT INTO End_User(Adhaar_number, Email, Password) VALUES ($$$$1, $$$$2, $$$$3);
+INSERT INTO End_User(Adhaar_number,Name, Email, Password) VALUES ($$$$1, $$$$4, $$$$2, $$$$3);
 
 #login
 SELECT * from End_User eu where eu.Email = $$$$1 and eu.Password = $$$$2; 
