@@ -30,7 +30,7 @@ $numResults = 1;
 // Query to get name column
 if($numResults == 1)
 {	
-	$permission = 0;	
+	$permission = 1;	
 }
 
 if($user_type == 0){

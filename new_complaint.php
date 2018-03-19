@@ -28,6 +28,16 @@
 				color: white;
 				text-decoration: none;
 			}
+			.button {
+				background-color: #FFFFFF; /* Green */
+				border: none;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
 
 		</style>
 	</head>

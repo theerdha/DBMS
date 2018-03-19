@@ -42,6 +42,7 @@
 			<input name = "email" placeholder = "Email"><br><br>
 			<input name = "password" type = "password" placeholder = "Password"><br><br>
 			<button type = "submit">Submit</button>
+			<button>Back</button>
 		</form>
 		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> User Already exists! </p>
 	</center>
