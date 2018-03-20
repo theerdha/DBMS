@@ -28,7 +28,7 @@ CREATE TABLE Respondent(
 Adhaar_number char(12) PRIMARY KEY,
 Working_hours Int DEFAULT 8,
 Rating 		  float(3,2) DEFAULT 0.00,
-Type 		  varchar(10) NOT NULL,
+Type 		  ENUM('COUNSELLOR', 'MESS_WORKER', 'RAG_PICKER'),
 FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 );
 
@@ -62,10 +62,10 @@ FOREIGN KEY (Complaint_ID) 	 	  REFERENCES Complaint(Complaint_ID)
 
 CREATE TABLE Resolves(
 Resp_Adhaar_number char(12),
-Complaint_ID  		Int,
+Complaint_ID  Int,
 PRIMARY KEY (Resp_Adhaar_number, Complaint_ID),
 FOREIGN KEY (Resp_Adhaar_number) REFERENCES Respondent(Adhaar_number),
-FOREIGN KEY (Complaint_ID) 	 	 REFERENCES Complaint(Complaint_ID)
+FOREIGN KEY (Complaint_ID) REFERENCES Complaint(Complaint_ID)
 );
 
 CREATE TABLE Analyses(
@@ -73,8 +73,9 @@ Admn_Adhaar_number char(12),
 Complaint_ID  		Int,
 PRIMARY KEY (Admn_Adhaar_number, Complaint_ID),
 FOREIGN KEY (Admn_Adhaar_number) REFERENCES Administrator(Adhaar_number),
-FOREIGN KEY (Complaint_ID) 		 REFERENCES Complaint(Complaint_ID)
+FOREIGN KEY (Complaint_ID) REFERENCES Complaint(Complaint_ID)
 );
+
 
 /*
 #signup

@@ -26,7 +26,7 @@ else
 	if($user_type == 0){
 		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
 		mysqli_query($con, $query);
-		$query = "INSERT INTO Respondent(Adhaar_number) VALUES('$aadhaar')";
+		$query = "INSERT INTO Respondent(Adhaar_number) VALUES ('$aadhaar')";
 		mysqli_query($con, $query);
 	}
 	else if($user_type == 1){
