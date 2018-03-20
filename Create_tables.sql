@@ -96,6 +96,8 @@ INSERT INTO End_User(Adhaar_number,Name, Email, Password) VALUES ($$$$1, $$$$4, 
 
 #login
 SELECT * from End_User eu where eu.Email = $$$$1 and eu.Password = $$$$2; 
+select * from End_User eu where eu.email = 'a' and eu.Password = 'b' and exists(select * from Grievant g where g.Adhaar_number = eu.Adhaar_number);
+
 
 #Report_complaint
 #optional: Location_tag, Report, Photo_pointer1, Time_stamp
