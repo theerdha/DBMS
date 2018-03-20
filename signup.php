@@ -1,5 +1,9 @@
 <?php 
 	$user_type = $_GET['user_type'];
+	$status = "none";
+	if($_GET['state'] == 1){
+		$status = "inline";
+	}
 ?>
 <html>
 	<head>
@@ -71,7 +75,7 @@
 	<br>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Signup</h3>
-		<form action = "signup_backend.php" method = "POST">
+		<form action = "signup_backend.php?user_type=<?php echo $user_type?>" method = "POST">
 			<input type = "text" name = "name" placeholder = "Name"><br>
 			<input type = "text" name = "email" placeholder = "Email Id"><br>
 			<input type = "text" name = "aadhaar" placeholder = "Aadhaar Number"><br>
@@ -81,3 +85,5 @@
 		</form>
 		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> User Already exists! </p>
 	</center>
+</body>
+</html>

@@ -2,8 +2,14 @@
 	$user_type = $_GET['user_type'];
 	// $_GET['failure'];
 	$status = "none";
-	if($_GET['failure'] == "true"){
+	$status_1 = "none";
+	$status_2 = "inline";
+	if($_GET['state'] == 1){
 		$status = "inline";
+	}
+	if($_GET['state'] == 2){
+		$status_1 = "inline";
+		$status_2 = "none";
 	}
 	//echo $status;
 ?>
@@ -79,7 +85,8 @@
 
 	<body class = "right" style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
-		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Already Registered?</h3>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;display: <?php echo $status_2 ?>;">Already Registered?</h3>
+		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;display: <?php echo $status_1 ?>;"> Succesfully Registered! </p>
 		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
 			<input type = "text" name = "email" placeholder = "Email"><br>
 			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>

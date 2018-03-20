@@ -10,23 +10,33 @@ if (mysqli_connect_errno())
 
 $name = $_POST["name"];
 $email = $_POST["email"];
-$password = $_POST["password"];
-// create aadhar number
-$password = md5($password);
+$aadhaar = $_POST["aadhaar"];
+$password = md5($_POST["password"]);
+$user_type = $_GET['user_type'];
 
-$query = "SELECT * FROM users WHERE email='$email'";
+$query = "SELECT * from End_User eu where eu.Email='$email' OR eu.Adhaar_number='$aadhaar'"; 
 $result = mysqli_query($con, $query);
 $numResults = mysqli_num_rows($result);
 
 if($numResults == 1)
 {
-	echo "<br><br><br><center><h1>Already registered!</h1></center>";
+	header ("Location: signup.php?state=1&user_type=$user_type");
 }
 else
 {
-	$query = "INSERT INTO users (email, password, name, login_count) VALUES ('$email', '$password', '$name', '0')";
-	mysqli_query($con, $query);
-	echo "<br><br><br><center><h1>Successfully registered!</h1></center>";
+	if($user_type == 0){
+		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
+		mysqli_query($con, $query);
+		$query = "INSERT INTO Respondent(Adhaar_number) VALUES ('$aadhaar')";
+		mysqli_query($con, $query);
+	}
+	else if($user_type == 1){
+		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
+		mysqli_query($con, $query);
+		$query = "INSERT INTO Grievant(Adhaar_number) VALUES('$aadhaar')";
+		mysqli_query($con, $query);
+	}	
+	header ("Location: signin_with_signup.php?state=2&user_type=$user_type");
 }
 
 ?>

@@ -27,9 +27,9 @@ FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 
 CREATE TABLE Respondent(
 Adhaar_number char(12) PRIMARY KEY,
-Working_hours varchar(50),
-Rating 		  float(3,2),
-Type 		  varchar(10) NOT NULL,
+Working_hours Int DEFAULT 8,
+Rating 		  float(3,2) DEFAULT 0.00,
+Type 		  ENUM('COUNSELLOR', 'MESS_WORKER', 'RAG_PICKER'),
 FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 );
 
@@ -60,10 +60,10 @@ FOREIGN KEY (Complaint_ID) 	 	  REFERENCES Complaint(Complaint_ID)
 
 CREATE TABLE Resolves(
 Resp_Adhaar_number char(12),
-Complaint_ID  		Int,
+Complaint_ID  Int,
 PRIMARY KEY (Resp_Adhaar_number, Complaint_ID),
 FOREIGN KEY (Resp_Adhaar_number) REFERENCES Respondent(Adhaar_number),
-FOREIGN KEY (Complaint_ID) 	 	 REFERENCES Complaint(Complaint_ID)
+FOREIGN KEY (Complaint_ID) REFERENCES Complaint(Complaint_ID)
 );
 
 CREATE TABLE Analyses(
@@ -71,10 +71,11 @@ Admn_Adhaar_number char(12),
 Complaint_ID  		Int,
 PRIMARY KEY (Admn_Adhaar_number, Complaint_ID),
 FOREIGN KEY (Admn_Adhaar_number) REFERENCES Administrator(Adhaar_number),
-FOREIGN KEY (Complaint_ID) 		 REFERENCES Complaint(Complaint_ID)
+FOREIGN KEY (Complaint_ID) REFERENCES Complaint(Complaint_ID)
 );
 
 
+/*
 #signup
 #echo mysql_errno($link) . ": " . mysql_error($link). "\n";
 CREATE PROCEDURE signup(IN AN char(12), IN EM varchar(50), IN PWD varchar(50))
@@ -87,6 +88,16 @@ CREATE PROCEDURE getpwd(IN EM varchar(50), IN PWD varchar(50))
 BEGIN
 	SELECT * from End_User eu where eu.Email = EM and eu.Password = PWD 
 END
+
+*/
+
+#signup
+INSERT INTO End_User(Adhaar_number,Name, Email, Password) VALUES ($$$$1, $$$$4, $$$$2, $$$$3);
+
+#login
+SELECT * from End_User eu where eu.Email = $$$$1 and eu.Password = $$$$2; 
+select * from End_User eu where eu.email = 'a' and eu.Password = 'b' and exists(select * from Grievant g where g.Adhaar_number = eu.Adhaar_number);
+
 
 #Report_complaint
 INSERT INTO Complaint(Type, Location_tag, Co_ordinates, Report, Photo_pointer,Time_stamp)
