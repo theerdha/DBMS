@@ -2,8 +2,12 @@
 	$user_type = $_GET['user_type'];
 	//echo $_GET['failure'];
 	$status = "none";
-	if($_GET['failure'] == "true"){
+	$status_1 = "none";
+	if($_GET['state'] == 1){
 		$status = "inline";
+	}
+	if($_GET['state'] == 2){
+		$status_1 = "inline";
 	}
 	//echo $status;
 ?>
@@ -42,15 +46,16 @@
 	</head>
 
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
-	<br><br>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
+		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status_1 ?>;
+		"> Succesfully Registered! </p>
 		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
 			<input name = "email" placeholder = "Email"><br><br>
 			<input name = "password" type = "password" placeholder = "Password"><br><br>
 			<button type = "submit">Submit</button>
 		</form>
-		<a href = "signup.php?failure=false" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">not a registered user?</span>
+		<a href = "signup.php?state=0" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">not a registered user?</span>
 		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status ?>;"> Invalid credentials </p>
 	</center>
 </html>
