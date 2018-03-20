@@ -1,17 +1,20 @@
 <?php
 
-$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
+$con = mysqli_connect("localhost","root","qwerty123","dbms-demo");
+
 if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
 
 $name = $_POST["name"];
 $email = $_POST["email"];
-$password = md5($_POST["password"]);
+$password = $_POST["password"];
+// create aadhar number
+$password = md5($password);
 
-$query = "SELECT * from End_User eu where eu.Email='$email'"; 
+$query = "SELECT * FROM users WHERE email='$email'";
 $result = mysqli_query($con, $query);
 $numResults = mysqli_num_rows($result);
 
@@ -21,17 +24,9 @@ if($numResults == 1)
 }
 else
 {
-	$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$', $$$$2, $$$$3)";
+	$query = "INSERT INTO users (email, password, name, login_count) VALUES ('$email', '$password', '$name', '0')";
 	mysqli_query($con, $query);
 	echo "<br><br><br><center><h1>Successfully registered!</h1></center>";
 }
-*/
 
 ?>
-
-<html>
-	<body>
-	<button>Back</button>
-	</body>
-
-</html>

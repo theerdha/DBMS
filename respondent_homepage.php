@@ -39,7 +39,7 @@
 				margin: 0;
 			}
 			.button {
-				background-color: #FFFFFF; /* Green */
+				background-color: #14d18c; /* Green */
 				border: none;
 				color: black;
 				padding: 15px 32px;
@@ -48,18 +48,25 @@
 				display: inline-block;
 				font-size: 16px;
 			}
+			.right {
+				position: relative;
+				right: 0px;
+				left : 300px;
+				width: 500px;
+				padding: 0px;
+			}
 
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/>
+	<body class ="right" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
-		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome <?php echo $name; ?>!</h3>
-		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Your current rating is  <?php echo $name; ?><p>
-		<div>Complaints with status 0 <button class="button">Take up</button> </div><br/> <br/>
-		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">View my solved Complaints</span>  &nbsp; &nbsp; &nbsp;
-		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">edit profile</span>  &nbsp; &nbsp; &nbsp;
-		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">logout</span>
+		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Welcome <?php echo $name; ?>!</h3>
+		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is  <?php echo $name; ?><p>
+		<div>Complaints with status 0 <button class="button">Take up</button> </div><br/>
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">View my solved Complaints</span>  &nbsp; &nbsp; &nbsp;
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">edit profile</span>  &nbsp; &nbsp; &nbsp;
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color:#15632b">logout</span>
 		
 	</center>
 </html>

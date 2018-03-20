@@ -8,7 +8,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
 			html { 
-					background: url(bg.jpg) no-repeat center center fixed;
+					background: url(back.jpg) no-repeat center center fixed;
   					-webkit-background-size: cover;
   					-moz-background-size: cover;
   					-o-background-size: cover;
@@ -52,11 +52,11 @@
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color:#15632b;"> Swachh KGP<br/>
 	<center>
-		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome Admin</h3>
+		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Welcome Admin</h3>
 		<div>workers, categories,tasks done in current week,rating <button class="button">rate</button> </div><br/> <br/>
-		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">logout</span>
+		<a href = respondent_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b;">logout</span>
 		
 	</center>
 </html>

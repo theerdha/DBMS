@@ -48,18 +48,23 @@
 				display: inline-block;
 				font-size: 16px;
 			}
-
+			.right {
+				position: relative;
+				right: 0px;
+				left : 300px;
+				width: 500px;
+				padding: 0px;
+			}
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
-	<br><br>
+	<body class = "right" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP <body/>
 	<center>
-		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Welcome <?php echo $name; ?>!</h3>
+		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color:#15632b;">Welcome <?php echo $name; ?>!</h3>
 		<div> All Complaints  and  Status </div><br/> <br/>
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">New Complaint</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">edit profile</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #FFFFFF'">logout</span>
+		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">New Complaint</span>  &nbsp; &nbsp; &nbsp;
+		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">edit profile</span>  &nbsp; &nbsp; &nbsp;
+		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">logout</span>
 		
 	</center>
 </html>

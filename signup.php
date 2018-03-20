@@ -1,9 +1,5 @@
 <?php 
 	$user_type = $_GET['user_type'];
-	$status = "none";
-	if($_GET['failure'] == "true"){
-		$status = "inline";
-	}
 ?>
 <html>
 	<head>
@@ -34,20 +30,54 @@
     			margin: auto;
 			    width: 25%;
 			}
+			input[type=text], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+			.right {
+				position: relative;
+				right: 0px;
+				left : 300px;
+				padding: 0px;
+			}
+			.button {
+				background-color: #14d18c; /* Green */
+				border: none;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			input[type=password], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
-	<br><br>
+	<body class = "right" style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP
+	<br>
 	<center>
-		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Signup</h3>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Signup</h3>
 		<form action = "signup_backend.php" method = "POST">
-			<input name = "name" placeholder = "Name"><br><br>
-			<input name = "email" placeholder = "Email"><br><br>
-			<input name = "aadhaar" placeholder = "Aadhaar"><br><br>
-			<input name = "password" type = "password" placeholder = "Password"><br><br>
-			<button type = "submit">Submit</button>
-			<button>Back</button>
+			<input type = "text" name = "name" placeholder = "Name"><br>
+			<input type = "text" name = "email" placeholder = "Email Id"><br>
+			<input type = "text" name = "aadhaar" placeholder = "Aadhaar Number"><br>
+			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>
+			<button class = "button" type = "submit">Submit</button>
+			<button class = "button">Back</button>
 		</form>
-		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status ?>;"> User Already exists! </p>
+		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> User Already exists! </p>
 	</center>

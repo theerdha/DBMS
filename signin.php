@@ -37,19 +37,55 @@
 				color: white;
 				text-decoration: none;
 			}
+			.right {
+				position: relative;
+				right: 0px;
+				left : 300px;
+				padding: 0px;
+			}
+	
+			input[type=text], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+			input[type=password], select {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				display: inline-block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+			}
+
+			.button {
+				background-color: #14d18c; /* Green */
+				border: none;
+				color: black;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
 
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;"> Swachh KGP<br/><br/>
+	<body class = "right" style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
-		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #FFFFFF;">Already Registered?</h3>
+		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Already Registered?</h3>
 		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
-			<input name = "email" placeholder = "Email"><br><br>
-			<input name = "password" type = "password" placeholder = "Password"><br><br>
-			<button type = "submit">Submit</button>
-			<button>Back</button><br/>
+			<input type = "text" name = "email" placeholder = "Email"><br>
+			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>
+			<button class = "button" type = "submit">Submit</button>
+			<button class = "button" >Back</button><br/>
 		</form>	
-		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #FFFFFF;display: <?php echo $status ?>;"> Invalid credentials </p>
+		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;display: <?php echo $status ?>;"> Invalid credentials </p>
 	</center>
 </html>
