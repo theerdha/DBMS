@@ -38,14 +38,14 @@
 
 		</style>
 	</head>
-	<body style = "font-family: 'Nixie One'; font-size: 70px; color: #FFFFFF;"> 
+	<body class = "right" style = "font-family: 'Nixie One'; font-size: 70px; color: #15632b;"> 
 		Are you a <br/>
-		<a href = "signin_with_signup.php?user_type=0&state=0"  style = "font-family: 'Cabin Sketch'; font-size: 100px; color:  #15632b'">Respondent</span>
+		<a href = "signin.php?user_type=0&failure=false"  style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #15632b">Respondent</span>
 		<br/>
 		or<br/>
-		<a href = "signin_with_signup.php?user_type=1&state=0" style = "font-family: 'Cabin Sketch'; font-size: 100px; color:  #15632b'">Grievant</span> <br/><br/>
+		<a href = "signin_with_signup.php?user_type=1&failure=false" style = "font-family: 'Cabin Sketch'; font-size: 100px; color: #15632b">Grievant</span> <br/><br/>
 
-		<a href = "signin.php?user_type=2&state=0" style = "font-family: 'Cabin Sketch';font-size: 25px; color:  #15632b'">Administrator</span>
+		<a href = "signin.php?user_type=0&failure=false" style = "font-family: 'Cabin Sketch';font-size: 25px; color: #15632b">Administrator</span>
 
 	</body>
 </html>
