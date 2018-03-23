@@ -88,40 +88,36 @@
 	</head><br/>
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 		<script>
-			var lat = document.getElementById("lat");
-			var long = document.getElementById("long");
-			
 			function showPosition(position) {
-			    document.getElementById("lat").value = ""+position.coords.latitude;
-			    document.getElementById("long").value = ""+position.coords.longitude; 
-			    //lat.placeholder = ""+position.coords.latitude;
-			    //long.placeholder = ""+position.coords.longitude; 
+			    document.getElementById("lat").value = position.coords.latitude;
+			    document.getElementById("long").value = position.coords.longitude; 
 			}
 			function getLocation() {
 			    if (navigator.geolocation) {
 			        navigator.geolocation.getCurrentPosition(showPosition);
 			    } else {
-			        lat.innerHTML = "Geolocation is not supported by this browser.";
-			        long.innerHTML = "Geolocation is not supported by this browser.";
+			        document.getElementById("lat").value = "Geolocation is not supported by this browser.";
+			        document.getElementById("long").value = "Geolocation is not supported by this browser.";
 			    }
 			}
 		</script>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">New Complaint</h3>
 
+
 		<button class="button" onclick="getLocation()">Get my cordinates</button><br/>
-		<form action = "complaint_backend.php" method = "POST"  enctype="multipart/form-data">
+
+		<form action = "complaint_backend.php?id=<?php echo $id ?>" method = "POST"  enctype="multipart/form-data">
 			<select name = "Complaint">
 			  <option value="Garbage">Garbage</option>
 			  <option value="Public Nuisance">Public Nuisance</option>
 			  <option value="Mess related">Mess</option>
 			</select> </br>
 			<input type ="text" name = "Location" placeholder = "Location Tag">
-			<textarea placeholder = "Report"></textarea><br/>
+			<textarea name = "Report" placeholder = "Report"></textarea><br/>
 			<input type="text" name="lat" id="lat" placeholder = "Latitute">
-			<input type="text" name="long" id="long" placeholder = "Longitude">
-			
-			<input type = "file" name="fileToUpload" id="fileToUpload">
+			<input type="text" name="long" id="long" placeholder = "Longitude">		
+			<input type = "file" name="fileToUpload" id="fileToUpload"><br/>
 			<button class = "button" type = "submit">Submit</button>
 		</form>	
 	</center>
