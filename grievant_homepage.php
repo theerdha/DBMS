@@ -1,5 +1,15 @@
 <?php 
-	$name = $_GET['name'];
+	$id = $_GET['aadhaar'];
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
+	if (mysqli_connect_errno())
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	$query = "SELECT * from End_User eu where eu.Adhaar_number = '$id'";
+	$result = mysqli_query($con, $query);
+	$row = $result->fetch_assoc();
+	$name = $row["Name"];
+	
 ?>
 <html>
 	<head>
@@ -62,9 +72,9 @@
 	<center>
 		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color:#15632b;">Welcome <?php echo $name; ?>!</h3>
 		<div> All Complaints  and  Status </div><br/> <br/>
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">New Complaint</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">edit profile</span>  &nbsp; &nbsp; &nbsp;
-		<a href = grievant_homepage.php style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">logout</span>
+		<a href = "new_complaint.php?id=<?php echo $id ?>" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">New Complaint</span>  &nbsp; &nbsp; &nbsp;
+		<a href = "editprofile.php?id=<?php echo $id ?>&user_type=1" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">edit profile</span>  &nbsp; &nbsp; &nbsp;
+		<a href = "signin_with_signup.php?user_type=1&state=0" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">logout</span>
 		
 	</center>
 </html>

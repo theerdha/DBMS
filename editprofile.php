@@ -1,5 +1,6 @@
 <?php 
-	$name = $_GET['name'];
+	$id = $_GET['id'];
+	$user_type = $_GET['user_type'];
 ?>
 <html>
 	<head>
@@ -78,17 +79,15 @@
 	<center>
 		<h5 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 40px; word-spacing: 0px; text-align:center; color: #15632b;">Edit your profile!<?php echo $name; ?>!</h5>
 		<div> 
-		<form action = "edit_griev_db.php" method = "POST">
+		<form action = "edit_griev_db.php?id=<?php echo $id ?>&user_type=<?php echo $user_type ?>" method = "POST">
 			<input type="text" name = "name" placeholder = "Name"><br>
-			<input type="text" name = "email" placeholder = "Email"><br>
-			<input type="text" name = "aadhaar" placeholder = "Aadhaar"><br>
 			<input type="text" name = "DOB" placeholder = "DOB"><br>
 			<input type="text" name = "age" placeholder = "Age"><br>
 			<input type="text" name = "Housenumber" placeholder = "Housenumber"><br>
 			<input type="text" name = "Location" placeholder = "Location"><br>
 			<input type="text" name = "password" type = "password" placeholder = "Password"><br>
-			<button class="button" type="text" type = "submit">Submit</button>
-			<button class="button">Back</button>
+			<button class="button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
+			<button class="button"><a href = "grievant_homepage.php?id=<?php echo $id?>" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button>
 		</form>	
 
 		</div>
