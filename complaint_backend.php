@@ -5,5 +5,8 @@
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	
+	$file = $_FILES["fileToUpload"]["tmp_name"];
+	$complaint=$_POST["Complaint"];
+	$location = $_POST["Location"];
+	$report = $_POST["Report"]
 ?>
