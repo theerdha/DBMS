@@ -1,3 +1,6 @@
+<?php 
+	$id = $_GET['id'];
+?>
 <html>
 	<head>
 		<title>New Complaint</title>
@@ -88,7 +91,7 @@
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">New Complaint</h3>
-		<form action = "complaint.php" method = "POST">
+		<form action = "complaint_backend.php" method = "POST"  enctype="multipart/form-data">
 			<select name = "Complaint">
 			  <option value="Garbage">Garbage</option>
 			  <option value="Public Nuisance">Public Nuisance</option>
@@ -96,8 +99,8 @@
 			</select> </br>
 			<input type ="text" name = "Location" placeholder = "Location Tag">
 			<textarea placeholder = "Report"></textarea>
-			<button class = "button" type = "Cordinates">Get my cordinates</button>
-			<button class = "button" type = "Picture">Upload a picture</button><br/>
+			<button class = "button" type = "Cordinates">Get my cordinates</button><br/>
+			<input type = "file" name="fileToUpload" id="fileToUpload"  >	<br/>
 			<button class = "button" type = "submit">Submit</button>
 		</form>	
 	</center>
