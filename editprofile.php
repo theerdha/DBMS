@@ -75,7 +75,7 @@
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 70px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP
 	<center>
 		<h5 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 40px; word-spacing: 0px; text-align:center; color: #15632b;">Edit your profile!<?php echo $name; ?>!</h5>
 		<div> 

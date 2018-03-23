@@ -88,23 +88,28 @@
 	</head><br/>
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 		<script>
-			var lat = document.getElementById("lat").disabled;
-			var long = document.getElementById("long").disabled;
+			var lat = document.getElementById("lat");
+			var long = document.getElementById("long");
 			
 			function showPosition(position) {
-			    lat.innerHTML = position.coords.latitude;
-			    long.innerHTML = position.coords.longitude; 
+			    document.getElementById("lat").value = ""+position.coords.latitude;
+			    document.getElementById("long").value = ""+position.coords.longitude; 
+			    //lat.placeholder = ""+position.coords.latitude;
+			    //long.placeholder = ""+position.coords.longitude; 
 			}
 			function getLocation() {
 			    if (navigator.geolocation) {
-			        navigator.geolocation.watchPosition(showPosition);
+			        navigator.geolocation.getCurrentPosition(showPosition);
 			    } else {
-			        .innerHTML = "Geolocation is not supported by this browser.";
+			        lat.innerHTML = "Geolocation is not supported by this browser.";
+			        long.innerHTML = "Geolocation is not supported by this browser.";
 			    }
 			}
 		</script>
 	<center>
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">New Complaint</h3>
+
+		<button class="button" onclick="getLocation()">Get my cordinates</button><br/>
 		<form action = "complaint_backend.php" method = "POST"  enctype="multipart/form-data">
 			<select name = "Complaint">
 			  <option value="Garbage">Garbage</option>
@@ -116,10 +121,9 @@
 			<input type="text" name="lat" id="lat" placeholder = "Latitute">
 			<input type="text" name="long" id="long" placeholder = "Longitude">
 			
-			<input type = "file" name="fileToUpload" id="fileToUpload"><br/>
+			<input type = "file" name="fileToUpload" id="fileToUpload">
 			<button class = "button" type = "submit">Submit</button>
 		</form>	
-		<button type="button" onclick="getLocation()">Get my cordinates</button><br/>
 	</center>
 </body>
 </html>

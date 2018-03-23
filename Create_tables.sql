@@ -8,7 +8,7 @@ House_number  varchar(50),
 Email		  varchar(50) PRIMARY KEY,
 Password 	  varchar(50) NOT NULL,
 CONSTRAINT Adhaar_uniq UNIQUE (Adhaar_number),
-CONSTRAINT User_uniq   UNIQUE (Username)
+CONSTRAINT User_uniq   UNIQUE (Name)
 );
 
 CREATE TABLE Phone_Number(
