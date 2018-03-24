@@ -1,7 +1,7 @@
 <?php 
 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 
 	if (mysqli_connect_errno())
 	{
@@ -51,7 +51,7 @@
 				margin: 0;
 			}
 			.button {
-				background-color: #FFFFFF; /* Green */
+				background-color: #14d18c; /* Green */
 				border: none;
 				color: black;
 				padding: 15px 32px;

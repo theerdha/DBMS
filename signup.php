@@ -80,10 +80,10 @@
 			<input type = "text" name = "email" placeholder = "Email Id"><br>
 			<input type = "text" name = "aadhaar" placeholder = "Aadhaar Number"><br>
 			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>
-			<button class = "button" type = "submit">Submit</button>
-			<button class = "button">Back</button>
+			<button class = "button" type = "submit" >Submit</button>
+			<button class = "button" type = "button" onclick="document.location.href='signin_with_signup.php?user_type=<?php echo $user_type?>'">Back</a></button><br/>
 		</form>
-		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> User Already exists! </p>
+		<p hidden style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;display: <?php echo $status ?>;"> User Already exists! </p>
 	</center>
 </body>
 </html>

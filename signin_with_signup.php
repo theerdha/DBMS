@@ -91,8 +91,8 @@
 		<form action = "login_db.php?user_type=<?php echo $user_type ?>" method = "POST">
 			<input type = "text" name = "email" placeholder = "Email"><br>
 			<input type = "password" name = "password" type = "password" placeholder = "Password">
-			<button class = "button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
-			<button class = "button" type = "button" onclick="document.location.href='usertype.php'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
+			<button class = "button" type = "submit" >Submit</button>
+			<button class = "button" type = "button" onclick="document.location.href='usertype.php'" >Back</a></button><br/>
 		</form>
 		<a href = "signup.php?state=0&user_type=<?php echo $user_type ?>" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">not a registered user?</span><br>
 		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;display: <?php echo $status ?>;"> Invalid credentials </p>

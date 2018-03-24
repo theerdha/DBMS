@@ -1,6 +1,6 @@
 <?php 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -27,13 +27,13 @@
 
 	$query = "INSERT INTO Complaint(Type,abscissa, ordinate, Location_tag, Report,Photo_pointer1,Time_stamp1) VALUES('$complaint',$lat,$long,'$location','$report','$image','$timestamp')";
 	$result = mysqli_query($con,$query);
-	header("Location: grievant_homepage.php?id=$id");
-	/*
-	$query = "SELECT * FROM Complaint WHERE Complaint_ID=1";
+	
+	$query = "SELECT COUNT(*) as total FROM Complaint";
 	$result = mysqli_query($con,$query);
 	$row = $result->fetch_assoc();
-	header("Content-type: image/jpg"); 
+	$total = (int)$row['total'];
+	$query = "INSERT INTO Reports(Complaint_ID, Grvnt_Adhaar_number) VALUES($total, '$id')";
+	$result = mysqli_query($con,$query);
+	header("Location: grievant_homepage.php?id=$id");
 	
-    echo $row['Photo_pointer1'];
-    */
 ?>
