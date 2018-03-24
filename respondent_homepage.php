@@ -105,11 +105,14 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {?>
+               while ($row1 = $result1->fetch_assoc()) {
+               	$cid = $row1['Complaint_ID'];
+               	?>
                    <tr>
-                   <td><?php echo $row1['Complaint_ID'];?></td>
+                   <td><?php echo $cid;?></td>
                    <td><?php echo $row1['Report'];?></td>
-                   <td><button>View Picture</button></td>
+
+                   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
                    <td><button>Take up</button></td>
                    </tr>
               <?php  } ?>

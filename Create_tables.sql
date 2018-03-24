@@ -41,15 +41,15 @@ FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 CREATE TABLE Complaint(
 Complaint_ID   Int PRIMARY KEY AUTO_INCREMENT,
 Type 		   ENUM('COUNSELLOR', 'MESS_WORKER', 'RAG_PICKER'),
-abscissa       float(8,5)  NOT NULL,
-ordinate       float(8,5)  NOT NULL,
+abscissa       float(8,5)  NOT NULL, 
+ordinate       float(8,5)  NOT NULL, 
 Location_tag   varchar(50),
-Status 		   ENUM('UNRESOLVED', 'RESOLVED') DEFAULT 'UNRESOLVED',
+Status 		   ENUM('UNRESOLVED', 'RESOLVED', 'PROCESSING') DEFAULT 'UNRESOLVED',
 Report 		   varchar(50),
-Photo_pointer1 longblob, 
-Photo_pointer2 longblob, 
-Time_stamp1    datetime,
-Time_stamp2    datetime
+Photo_pointer1 longblob, #report photo
+Photo_pointer2 longblob, #Resolved photo
+Time_stamp1    date,
+Time_stamp2    date
 );
 
 CREATE TABLE Reports(
@@ -123,13 +123,66 @@ INSERT INTO Administrator(Adhaar_number, SUDO_PASSWORD)
 
 #Grievant->List all Complaints
 #change order_by as required
-SELECT r.Complaint_ID, c.Status from Reports r Complaint c where r.Grvnt_Adhaar_number = $$$$$ and c.Adhaar_number = r.Grvnt_Adhaar_number 
+SELECT r.Complaint_ID, c.Status from Reports r Complaint c where r.Grvnt_Adhaar_number = $$$$$ and c.Complaint_ID = r.Complaint_ID 
 														   order by Time_stamp desc
 
 #Respondent->Available Complaints
 #Resp_Adhaar_number
 SELECT c.Complaint_ID, c.Report from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = $$$$) and c.Status = 'UNRESOLVED' 
 									   #order by Location_tag
+
+
+
+
+
+#Resolved for a Grievant
+SELECT r.Complaint_ID from Resolves r, Complaint c where r.Resp_Adhaar_number = $$$$ and r.Complaint_ID  = c.Complaint_ID and c.Status = 'RESOLVED'
+
+#PROCESSING for a Grievant
+SELECT r.Complaint_ID from Resolves r, Complaint c where r.Resp_Adhaar_number = $$$$ and r.Complaint_ID  = c.Complaint_ID and c.Status = 'PROCESSING'
+
+#best 5(N) of all
+#change $$$$ to required type of Respondent
+SELECT r.Resp_Adhaar_number as RAN, count(*)
+    FROM Resolves r,Complaint c
+    WHERE r.Complaint_ID = c.Complaint_ID and c.Type = $$$$
+    GROUP BY RAN
+    ORDER BY count(*) DESC
+    LIMIT 5
+
+#all types of Respondents top 5(N) users
+SELECT r.Resp_Adhaar_number as RAN, count(*)
+    FROM Resolves r,Complaint c
+    WHERE r.Complaint_ID = c.Complaint_ID
+    GROUP BY RAN
+    ORDER BY count(*) DESC
+    LIMIT 5
+
+#admn
+SELECT r.Resp_Adhaar_number, c.Type, CONCAT(YEAR(c.Time_stamp2), '/', WEEK(c.Time_stamp2)) as week_name, COUNT(*), resp.Rating 
+	from Resolves r, Complaint c, Respondent resp 
+	where r.Resp_Adhaar_number = resp.Adhaar_number and r.Complaint_ID = c.Complaint_ID 
+	GROUP BY r.Resp_Adhaar_number,c.Type, resp.Rating, week_name
+	ORDER BY week_name DESC
+
+#rate_update
+UPDATE Respondent SET Rating = $$$$ WHERE Adhaar_number = $$$$;
+ 
+/*
+drop table Resolves;
+drop table Reports;
+drop table Phone_Number;
+drop table Analyses;
+drop table Complaint;
+drop table Administrator;
+drop table Grievant;
+drop table Respondent;
+drop table End_User;
+
+*/
+
+
+
 
 
 

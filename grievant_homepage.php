@@ -113,9 +113,9 @@
                    <td><?php echo $row1['Complaint_ID'];?></td>
                    <td><?php echo $row1['Report'];?></td>
 				   <td><?php echo $row1['Status'];?></td>
-                   <td><button>View Picture</button></td>
+                   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=1'">View Photo</button></td>
 				   <td><?php echo $row1['Time_stamp1'];?></td>
-				   <td><button>View Picture</button></td>
+				   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=1'">View Photo</button></td>
   				   <td><?php echo $row1['Time_stamp2'];?></td>
                    </tr>
               <?php  } ?>

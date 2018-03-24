@@ -7,7 +7,7 @@
 ?>
 <html>
 	<head>
-		<title>Swachh KGP</title>
+		<title>signup</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
