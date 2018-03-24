@@ -1,10 +1,24 @@
 <?php 
 	$id = $_GET['id'];
 	$user_type = $_GET['user_type'];
+	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	if (mysqli_connect_errno())
+	{
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	$query = "SELECT Name,Date_of_birth,Age,House_number,Location from End_User where Adhaar_number = '$id'";
+	$result = mysqli_query($con, $query);
+	$row = $result->fetch_assoc();
+	$name = $row['Name'];
+	$dob = $row['Date_of_birth'];
+	$age = $row['Age'];
+	$House_number = $row['House_number'];
+	$Location = $row['Location'];
+
 ?>
 <html>
 	<head>
-		<title>grievant homepage</title>
+		<title>edit profile</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -80,14 +94,14 @@
 		<h5 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 40px; word-spacing: 0px; text-align:center; color: #15632b;">Edit your profile!<?php echo $name; ?>!</h5>
 		<div> 
 		<form action = "edit_griev_db.php?id=<?php echo $id ?>&user_type=<?php echo $user_type ?>" method = "POST">
-			<input type="text" name = "name" placeholder = "Name"><br>
-			<input type="text" name = "DOB" placeholder = "DOB"><br>
-			<input type="text" name = "age" placeholder = "Age"><br>
-			<input type="text" name = "Housenumber" placeholder = "Housenumber"><br>
-			<input type="text" name = "Location" placeholder = "Location"><br>
+			<input type="text" name = "name" placeholder = "Name" value= <?php echo $name?>><br>
+			<input type="text" name = "DOB" placeholder = "DOB" value = <?php echo $dob?>><br>
+			<input type="text" name = "age" placeholder = "Age" value = <?php echo $age?>><br>
+			<input type="text" name = "Housenumber" placeholder = "Housenumber" value=<?php echo $House_number?>><br>
+			<input type="text" name = "Location" placeholder = "Location" value=<?php echo $Location?>><br>
 			<input type="text" name = "password" type = "password" placeholder = "Password"><br>
 			<button class="button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
-			<button class="button"><a href = "grievant_homepage.php?id=<?php echo $id?>" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button>
+			<button class = "button" type = "button" onclick="document.location.href='grievant_homepage.php?id=<?php echo $id?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
 		</form>	
 
 		</div>

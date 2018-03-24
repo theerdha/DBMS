@@ -86,7 +86,7 @@
 
 		</style>
 	</head><br/>
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
+	<body style = "font-family:'Cabin Sketch', serif; font-size:70px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 		<script>
 			function showPosition(position) {
 			    document.getElementById("lat").value = position.coords.latitude;
@@ -117,7 +117,7 @@
 			<textarea name = "Report" placeholder = "Report"></textarea><br/>
 			<input type="text" name="lat" id="lat" placeholder = "Latitute">
 			<input type="text" name="long" id="long" placeholder = "Longitude">		
-			<input type = "file" name="fileToUpload" id="fileToUpload"><br/>
+			<input type = "file" name="fileToUpload" id="fileToUpload">
 			<button class = "button" type = "submit">Submit</button>
 		</form>	
 	</center>
