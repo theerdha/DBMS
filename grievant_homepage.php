@@ -1,6 +1,6 @@
 <?php 
 
-	$id = $_GET['aadhaar'];
+	$id = $_GET['id'];
 	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
 
 	if (mysqli_connect_errno())
