@@ -80,6 +80,14 @@
 			<input type = "text" name = "email" placeholder = "Email Id"><br>
 			<input type = "text" name = "aadhaar" placeholder = "Aadhaar Number"><br>
 			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>
+			<?php
+               if ($user_type == 0) {?>
+                  <select name = "Type">
+					  <option value="RAG_PICKER">Rag Picker</option>
+					  <option value="COUNSELLOR">Counsellor</option>
+					  <option value="MESS_MANAGER">Mess Manager</option>
+				  </select> </br>
+              <?php  } ?>
 			<button class = "button" type = "submit" >Submit</button>
 			<button class = "button" type = "button" onclick="document.location.href='signin_with_signup.php?user_type=<?php echo $user_type?>'">Back</a></button><br/>
 		</form>

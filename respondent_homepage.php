@@ -109,7 +109,7 @@
                    <tr>
                    <td><?php echo $row1['Complaint_ID'];?></td>
                    <td><?php echo $row1['Report'];?></td>
-                   <td></td>
+                   <td><button>View Picture</button></td>
                    <td><button>Take up</button></td>
                    </tr>
               <?php  } ?>

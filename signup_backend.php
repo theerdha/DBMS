@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
+$con = mysqli_connect("localhost","root","qwerty123","dbms-demo");
 
 if (mysqli_connect_errno())
   {
@@ -28,7 +28,8 @@ else
 		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
 		mysqli_query($con, $query);
 		$query = "INSERT INTO Respondent(Adhaar_number) VALUES ('$aadhaar')";
-		mysqli_query($con, $query);
+		$result = mysqli_query($con, $query);
+		if(! $result)echo "df";
 	}
 	else if($user_type == 1){
 		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
@@ -36,7 +37,7 @@ else
 		$query = "INSERT INTO Grievant(Adhaar_number) VALUES('$aadhaar')";
 		mysqli_query($con, $query);
 	}	
-	header ("Location: signin_with_signup.php?state=2&user_type=$user_type");
+	//header ("Location: signin_with_signup.php?state=2&user_type=$user_type");
 }
 
 ?>

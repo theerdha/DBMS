@@ -75,13 +75,17 @@
 				width: 100%;
 			}
 
-			td, th {
+			td {
 				border: 1px solid #000000;
-				text-align: left;
+				text-align: center;
 				padding: 8px;
+				background-color: #f8f9d1;
+				
 			}
-
-			tr:nth-child(even) {
+			th {
+				border: 1px solid #000000;
+				text-align: center;
+				padding: 8px;
 				background-color: #dddddd;
 			}
 

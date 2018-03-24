@@ -1,7 +1,7 @@
 <?php 
 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
+	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
 
 	if (mysqli_connect_errno())
 	{
@@ -11,6 +11,10 @@
 	$result = mysqli_query($con, $query);
 	$row = $result->fetch_assoc();
 	$name = $row["Name"];
+
+	$query1 = "SELECT c.Complaint_ID, c.Report,c.Status,c.Time_stamp1,c.Time_stamp2 from Reports r ,Complaint c where r.Grvnt_Adhaar_number = '$id' and c.Complaint_ID = r.Complaint_ID";
+														  								   
+	$result1 = mysqli_query($con, $query1);
 	
 ?>
 <html>
@@ -67,16 +71,59 @@
 				width: 500px;
 				padding: 0px;
 			}
+			table {
+				font-family: arial, sans-serif;
+				border-collapse: collapse;
+				width: 100%;
+			}
+
+			td {
+				border: 1px solid #000000;
+				text-align: center;
+				padding: 8px;
+				background-color: #f8f9d1;
+				
+			}
+			th {
+				border: 1px solid #000000;
+				text-align: center;
+				padding: 8px;
+				background-color: #dddddd;
+			}
 		</style>
 	</head>
 
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP <body/>
 	<center>
 		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color:#15632b;">Welcome <?php echo $name; ?>!</h3>
-		<div> All Complaints  and  Status </div><br/> <br/>
-		<a href = "new_complaint.php?id=<?php echo $id ?>" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">New Complaint</span>  &nbsp; &nbsp; &nbsp;
-		<a href = "editprofile.php?id=<?php echo $id ?>&user_type=1" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">edit profile</span>  &nbsp; &nbsp; &nbsp;
-		<a href = "signin_with_signup.php?user_type=1&state=0" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">logout</span>
+		<table>
+		  <tr>
+			<th>Complaint_ID</th>
+			<th>Report</th>
+			<th>status</th>
+			<th>Original Picture</th>
+			<th>Original Timestamp</th>
+			<th>Final Picture</th>
+			<th>Final Timestamp</th>
+		  </tr>
+		  
+			<?php
+               while ($row1 = $result1->fetch_assoc()) {?>
+                   <tr>
+                   <td><?php echo $row1['Complaint_ID'];?></td>
+                   <td><?php echo $row1['Report'];?></td>
+				   <td><?php echo $row1['Status'];?></td>
+                   <td><button>View Picture</button></td>
+				   <td><?php echo $row1['Time_stamp1'];?></td>
+				   <td><button>View Picture</button></td>
+  				   <td><?php echo $row1['Time_stamp2'];?></td>
+                   </tr>
+              <?php  } ?>
+		</table><br/>
+
+		<button class = "button" onclick="document.location.href='new_complaint.php?id=<?php echo $id?>'" >New Complaint</button>  
+		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>'" >Edit Profile</button> 
+		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=1&state=0'" >Logout</button> 
 		
 	</center>
 </html>
