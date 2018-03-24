@@ -9,14 +9,12 @@ $user_type = $_GET["user_type"];
 $id = $_GET['id'];
 $name = $_POST["name"];
 $dob = $_POST["DOB"];
-$age = $_POST["age"];
+$age = (int)$_POST["age"];
 $houseno = $_POST["Housenumber"];
 $location = $_POST["Location"];
 $password = $_POST["password"];
 
-
-$query = "UPDATE End_User SET Name = '$name', Date_of_birth = '$dob', '$age', Location='$location', House_number = '$houseno' WHERE Adhaar_number = '$id'";
-$result = mysqli_query($con,$query);
-
-
+$query = "UPDATE End_User SET Name = '$name', Date_of_birth='$dob', Age=$age, Location='$location', House_number = '$houseno' WHERE Adhaar_number = '$id'";
+$result = mysqli_query($con,$query); 
+header("Location: editprofile.php?id=$id&user_type=1");
 ?>
