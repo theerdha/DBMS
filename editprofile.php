@@ -15,6 +15,12 @@
 	$House_number = $row['House_number'];
 	$Location = $row['Location'];
 
+	if($user_type) { 
+		$target	= "respondent_homepage.php?id=$id";
+	}
+	else{
+		$target = "grievant_homepage.php?id=$id";
+	}
 ?>
 <html>
 	<head>
@@ -101,7 +107,7 @@
 			<input type="text" name = "Location" placeholder = "Location" value=<?php echo $Location?>><br>
 			<input type="text" name = "password" type = "password" placeholder = "Password"><br>
 			<button class="button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
-			<button class = "button" type = "button" onclick="document.location.href='grievant_homepage.php?id=<?php echo $id?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
+			<button class = "button" type = "button" onclick="document.location.href='<?php echo $target?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
 		</form>	
 
 		</div>
