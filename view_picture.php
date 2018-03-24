@@ -1,18 +1,19 @@
 <?php 
+	$cid = $_GET['cid'];
 	$id = $_GET['id'];
 	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "SELECT c.Complaint_ID, c.Report from Complaint as c where c.Status = 'RESOLVED' ";
-	//$query = "SELECT * from Complaint ";
-									   
-	$result = mysqli_query($con, $query);
-	/*$row = $result->fetch_assoc();
-	$complaint = $row['Complaint_ID'];
-	$report = $row['Report'];*/
-
+	$report = "SELECT Photo_pointer1 FROM Complaint WHERE Complaint_ID = '$cid'";
+	$result = mysqli_query($con,$report);
+	$row = $result->fetch_assoc();
+	//header("Content-type: image/jpg"); 
+	//echo $row['Photo_pointer1'];
+    echo '
+	<img src="data:image/jpeg;base64,'.base64_encode($row['Photo_pointer1']).'"  alt="Smiley face" height="500" /> 
+	';
 ?>
 
 <html>
@@ -88,29 +89,9 @@
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/><br/>
+	<body>
 	<center>
-		
-		<table>
-		  <tr>
-			<th>Complaint_ID</th>
-			<th>Report</th>
-			<th>Picture</th>
-		  </tr>
-		  
-			<?php
-               while ($row = $result->fetch_assoc()) {?>
-                   <tr>
-                   <td><?php echo $row['Complaint_ID'];?></td>
-                   <td><?php echo $row['Report'];?></td>
-                   <td></td>
-                   
-                   </tr>
-              <?php  } ?>
-		</table>
-<br/>
-		<button class = "button" type = "button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
-		
-		
+		<button class="button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id ?>'">Back
+		</button>
 	</center>
 </html>

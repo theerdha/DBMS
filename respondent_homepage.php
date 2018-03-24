@@ -1,6 +1,6 @@
 <?php 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -105,11 +105,13 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {?>
+               while ($row1 = $result1->fetch_assoc()) {
+               	$cid = $row1['Complaint_ID'];
+               	?>
                    <tr>
-                   <td><?php echo $row1['Complaint_ID'];?></td>
+                   <td><?php echo $cid;?></td>
                    <td><?php echo $row1['Report'];?></td>
-                   <td></td>
+                   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>'">View Photo</button></td>
                    <td><button>Take up</button></td>
                    </tr>
               <?php  } ?>
