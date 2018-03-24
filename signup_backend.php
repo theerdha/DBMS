@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","qwerty123","dbms-demo");
+$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 
 if (mysqli_connect_errno())
   {
@@ -18,7 +18,7 @@ $query = "SELECT * from End_User eu where eu.Email='$email' OR eu.Adhaar_number=
 $result = mysqli_query($con, $query);
 $numResults = mysqli_num_rows($result);
 
-if($numResults == 1)
+if($numResults == 1 || $aadhaar=='' || $email == '')
 {
 	header ("Location: signup.php?state=1&user_type=$user_type");
 }

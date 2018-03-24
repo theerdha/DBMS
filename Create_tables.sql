@@ -56,7 +56,7 @@ CREATE TABLE Reports(
 Grvnt_Adhaar_number char(12),
 Complaint_ID  		Int,
 PRIMARY KEY (Grvnt_Adhaar_number, Complaint_ID),
-FOREIGN KEY (rvnt_Adhaar_number) REFERENCES Grievant(Adhaar_number),
+FOREIGN KEY (Grvnt_Adhaar_number) REFERENCES Grievant(Adhaar_number),
 FOREIGN KEY (Complaint_ID) 	 	  REFERENCES Complaint(Complaint_ID)
 );
 

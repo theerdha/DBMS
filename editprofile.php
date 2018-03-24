@@ -1,7 +1,7 @@
 <?php 
 	$id = $_GET['id'];
 	$user_type = $_GET['user_type'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -95,7 +95,7 @@
 		<div> 
 		<form action = "edit_griev_db.php?id=<?php echo $id ?>&user_type=<?php echo $user_type ?>" method = "POST">
 			<input type="text" name = "name" placeholder = "Name" value= <?php echo $name?>><br>
-			<input type="text" name = "DOB" placeholder = "DOB" value = <?php echo $dob?>><br>
+			<input type="text" name = "DOB" placeholder = "YYYY-MM-DD" value = <?php echo $dob?>><br>
 			<input type="text" name = "age" placeholder = "Age" value = <?php echo $age?>><br>
 			<input type="text" name = "Housenumber" placeholder = "Housenumber" value=<?php echo $House_number?>><br>
 			<input type="text" name = "Location" placeholder = "Location" value=<?php echo $Location?>><br>
