@@ -5,7 +5,7 @@
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "SELECT c.Complaint_ID, c.Report from Complaint as c where c.Status = 'UNRESOLVED' ";
+	$query = "SELECT c.Complaint_ID, c.Report from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'UNRESOLVED' ";
 	//$query = "SELECT * from Complaint ";
 									   
 	$result = mysqli_query($con, $query);
@@ -107,7 +107,7 @@
                    <tr>
                    <td><?php echo $row['Complaint_ID'];?></td>
                    <td><?php echo $row['Report'];?></td>
-                   <td></td>
+                   <td><button>View Picture</button></td>
                    
                    </tr>
               <?php  } ?>

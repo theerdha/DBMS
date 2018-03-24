@@ -10,7 +10,7 @@
 	$row = $result->fetch_assoc();
 	$name = $row["Name"];
 
-	$query1 = "SELECT c.Complaint_ID, c.Report from Complaint as c where c.Status = 'UNRESOLVED' ";								   
+	$query1 = "SELECT c.Complaint_ID, c.Report from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'UNRESOLVED'";								   
 	$result1 = mysqli_query($con, $query1);
 ?>
 <html>
