@@ -41,22 +41,22 @@ FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 CREATE TABLE Complaint(
 Complaint_ID   Int PRIMARY KEY AUTO_INCREMENT,
 Type 		   ENUM('COUNSELLOR', 'MESS_WORKER', 'RAG_PICKER'),
-abscissa       float(8,5)  NOT NULL, #X
-ordinate       float(8,5)  NOT NULL, #Y
+abscissa       float(8,5)  NOT NULL,
+ordinate       float(8,5)  NOT NULL,
 Location_tag   varchar(50),
 Status 		   ENUM('UNRESOLVED', 'RESOLVED') DEFAULT 'UNRESOLVED',
 Report 		   varchar(50),
-Photo_pointer1 BLOB, #report photo
-Photo_pointer2 BLOB, #Resolved photo
-Time_stamp1    date,
-Time_stamp2    date
+Photo_pointer1 longblob, 
+Photo_pointer2 longblob, 
+Time_stamp1    datetime,
+Time_stamp2    datetime
 );
 
 CREATE TABLE Reports(
 Grvnt_Adhaar_number char(12),
 Complaint_ID  		Int,
 PRIMARY KEY (Grvnt_Adhaar_number, Complaint_ID),
-FOREIGN KEY (Grvnt_Adhaar_number) REFERENCES Grievant(Adhaar_number),
+FOREIGN KEY (rvnt_Adhaar_number) REFERENCES Grievant(Adhaar_number),
 FOREIGN KEY (Complaint_ID) 	 	  REFERENCES Complaint(Complaint_ID)
 );
 

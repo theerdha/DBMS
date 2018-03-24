@@ -1,5 +1,5 @@
 <?php 
-	$id = $_GET['aadhaar'];
+	$id = $_GET['id'];
 	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
