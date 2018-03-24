@@ -106,8 +106,8 @@ INSERT INTO Reports(Complaint_ID, Grvnt_Adhaar_number)
 	VALUES(C_ID, )###
 
 #update end_user 
-INSERT INTO End_User(Name, Date_of_birth, Age, Location, House_number)
-	VALUES() ###
+UPDATE End_User SET Name = $$$$, Date_of_birth = $$$$, Age=$$$$, Location=$$$$, House_number = $$$$
+	WHERE Adhaar_number = $$$$
 
 #add_griev
 INSERT INTO Grievant(Adhaar_number, Designation, Department)
