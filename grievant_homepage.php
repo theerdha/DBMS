@@ -1,6 +1,6 @@
 <?php 
-	/*$id = $_GET['aadhaar'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms_demo");
+	$id = $_GET['aadhaar'];
+	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -8,7 +8,7 @@
 	$query = "SELECT * from End_User eu where eu.Adhaar_number = '$id'";
 	$result = mysqli_query($con, $query);
 	$row = $result->fetch_assoc();
-	$name = $row["Name"];*/
+	$name = $row["Name"];
 	
 ?>
 <html>
@@ -18,7 +18,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
 			html { 
-					background: url(bg.jpg) no-repeat center center fixed;
+					background: url(back.jpg) no-repeat center center fixed;
   					-webkit-background-size: cover;
   					-moz-background-size: cover;
   					-o-background-size: cover;
@@ -68,7 +68,7 @@
 		</style>
 	</head>
 
-	<body class = "right" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP <body/>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP <body/>
 	<center>
 		<h3 id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color:#15632b;">Welcome <?php echo $name; ?>!</h3>
 		<div> All Complaints  and  Status </div><br/> <br/>
