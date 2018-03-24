@@ -7,21 +7,33 @@
 	}
 	
 	$image = addslashes(file_get_contents($_FILES['fileToUpload']['tmp_name']));
-	$complaint= 'COUNSELLOR';
+	$type = $_POST['Complaint'];
+	$complaint = "";
+	if($type == "Garbage"){
+		$complaint = 'RAG_PICKER';
+	}
+	else if($type == "Public Nuisance"){
+		$complaint= 'COUNSELLOR';	
+	}
+	else if($type == "Mess related"){
+		$complaint = 'MESS_WORKER';
+	}
+
 	$location = $_POST["Location"];
 	$report = $_POST["Report"];
 	$lat = $_POST["lat"];
 	$long = $_POST["long"];
 	$timestamp = date("Y-m-d H:i:s");	
 
-	$query = "INSERT INTO Complaint(abscissa, ordinate, Location_tag, Report,Photo_pointer1,Time_stamp1) VALUES($lat,$long,'$location','$report','$image','$timestamp')";
+	$query = "INSERT INTO Complaint(Type,abscissa, ordinate, Location_tag, Report,Photo_pointer1,Time_stamp1) VALUES('$complaint',$lat,$long,'$location','$report','$image','$timestamp')";
 	$result = mysqli_query($con,$query);
 	header("Location: grievant_homepage.php?id=$id");
+	/*
 	$query = "SELECT * FROM Complaint WHERE Complaint_ID=1";
 	$result = mysqli_query($con,$query);
 	$row = $result->fetch_assoc();
 	header("Content-type: image/jpg"); 
 	
     echo $row['Photo_pointer1'];
+    */
 ?>
-
