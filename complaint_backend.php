@@ -5,8 +5,23 @@
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$file = $_FILES["fileToUpload"]["tmp_name"];
-	$complaint=$_POST["Complaint"];
+	
+	$image = addslashes(file_get_contents($_FILES['fileToUpload']['tmp_name']));
+	$complaint= 'COUNSELLOR';
 	$location = $_POST["Location"];
-	$report = $_POST["Report"]
+	$report = $_POST["Report"];
+	$lat = $_POST["lat"];
+	$long = $_POST["long"];
+	$time = date("Y-m-d H:i:s");	
+
+	$query = "INSERT INTO Complaint(abscissa, ordinate, Location_tag, Report,Photo_pointer1) VALUES($lat,$long,'$location','$report','$image')";
+	$result = mysqli_query($con,$query);
+	//echo "BOW";
+	header("Location: grievant_homepage.php?id=$id");
+	$query = "SELECT * FROM Complaint WHERE Complaint_ID=1";
+	$result = mysqli_query($con,$query);
+	$row = $result->fetch_assoc();
+	header("Content-type: image/jpg"); 
+	
+    echo $row['Photo_pointer1'];
 ?>

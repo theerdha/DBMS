@@ -42,12 +42,12 @@ else{
 	$object = mysqli_fetch_field_direct($result,0);
 	$username = $row["Name"];
 	if($user_type == 0){
-		header ("Location: respondent_homepage.php?aadhaar=$aadhaar"); 	
+		header ("Location: respondent_homepage.php?id=$aadhaar"); 	
 	}
 	elseif($user_type == 1){
-		header ("Location: grievant_homepage.php?aadhaar=$aadhaar"); 		
+		header ("Location: grievant_homepage.php?id=$aadhaar"); 		
 	}else{		
-		header ("Location: Admin.php?aadhaar=$aadhaar"); 
+		header ("Location: Admin.php?id=$aadhaar"); 
 	}
 }
 ?>

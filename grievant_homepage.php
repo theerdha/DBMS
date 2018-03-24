@@ -1,6 +1,6 @@
 <?php 
-	/*$id = $_GET['aadhaar'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms_demo");
+	$id = $_GET['id'];
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -8,7 +8,7 @@
 	$query = "SELECT * from End_User eu where eu.Adhaar_number = '$id'";
 	$result = mysqli_query($con, $query);
 	$row = $result->fetch_assoc();
-	$name = $row["Name"];*/
+	$name = $row["Name"];
 	
 ?>
 <html>
