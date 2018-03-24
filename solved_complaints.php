@@ -5,17 +5,19 @@
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "SELECT * from End_User eu where eu.Adhaar_number = '$id'";
+	$query = "SELECT c.Complaint_ID, c.Report from Complaint as c where c.Status = 'UNRESOLVED' ";
+	//$query = "SELECT * from Complaint ";
+									   
 	$result = mysqli_query($con, $query);
-	$row = $result->fetch_assoc();
-	$name = $row["Name"];
+	/*$row = $result->fetch_assoc();
+	$complaint = $row['Complaint_ID'];
+	$report = $row['Report'];*/
 
-	$query1 = "SELECT c.Complaint_ID, c.Report from Complaint as c where c.Status = 'UNRESOLVED' ";								   
-	$result1 = mysqli_query($con, $query1);
 ?>
+
 <html>
 	<head>
-		<title>respondent homepage</title>
+		<title>solved complaints</title>
 		<link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet"> 
 		<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet"> 
 		<style type="text/css">
@@ -45,7 +47,7 @@
 				
 			}
 			div {
-				width: 600px;
+				width: 1000px;
 				padding: 20px;
 				border: 5px solid gray;
 				margin: 0;
@@ -54,7 +56,7 @@
 				background-color: #14d18c; /* Green */
 				border: none;
 				color: black;
-				padding: 10px 30px;
+				padding: 15px 32px;
 				text-align: center;
 				text-decoration: none;
 				display: inline-block;
@@ -73,50 +75,41 @@
 				width: 100%;
 			}
 
-			td {
+			td, th {
 				border: 1px solid #000000;
-				text-align: center;
+				text-align: left;
 				padding: 8px;
-				background-color: #f8f9d1;
-				
-			}
-			th {
-				border: 1px solid #000000;
-				text-align: center;
-				padding: 8px;
-				background-color: #dddddd;
 			}
 
+			tr:nth-child(even) {
+				background-color: #dddddd;
+			}
 
 		</style>
 	</head>
 
-	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
+	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/><br/>
 	<center>
-		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Welcome <?php echo $name; ?>!</p>
-		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is  <?php echo $name; ?></p>
 		
 		<table>
 		  <tr>
 			<th>Complaint_ID</th>
 			<th>Report</th>
 			<th>Picture</th>
-			<th>Action</th>
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {?>
+               while ($row = $result->fetch_assoc()) {?>
                    <tr>
-                   <td><?php echo $row1['Complaint_ID'];?></td>
-                   <td><?php echo $row1['Report'];?></td>
+                   <td><?php echo $row['Complaint_ID'];?></td>
+                   <td><?php echo $row['Report'];?></td>
                    <td></td>
-                   <td><button>Take up</button></td>
+                   
                    </tr>
               <?php  } ?>
 		</table>
-		<button class = "button" onclick="document.location.href='solved_complaints.php?id=<?php echo $id?>'" >View my solved Complaints</button>  
-		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>'" >Edit Profile</button> 
-		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=0&state=0'" >Logout</button>   
+<br/>
+		<button class = "button" type = "button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
 		
 		
 	</center>
