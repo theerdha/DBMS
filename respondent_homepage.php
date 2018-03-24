@@ -94,7 +94,7 @@
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
 		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Welcome <?php echo $name; ?>!</p>
-		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is  <?php echo $name; ?></p>
+		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is </p>
 		
 		<table>
 		  <tr>

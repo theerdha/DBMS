@@ -16,7 +16,7 @@ $user_type = $_GET['user_type'];
 $type_of_respondent = 'COUNSELLOR';
 
 if($user_type == 0){
-	$type_of_respondent = $_POST["Type"];
+	$type_of_respondent = '$_POST["Type"]';
 }
 
 $query = "SELECT * from End_User eu where eu.Email='$email' OR eu.Adhaar_number='$aadhaar'"; 

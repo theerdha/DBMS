@@ -106,8 +106,8 @@
 			<input type="text" name = "Housenumber" placeholder = "Housenumber" value=<?php echo $House_number?>><br>
 			<input type="text" name = "Location" placeholder = "Location" value=<?php echo $Location?>><br>
 			<input type="text" name = "password" type = "password" placeholder = "Password"><br>
-			<button class="button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
-			<button class = "button" type = "button" onclick="document.location.href='<?php echo $target?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
+			<button class="button" type = "submit">Submit</button>
+			<button class = "button" type = "button" onclick="document.location.href='<?php echo $target?>'">Back</a></button><br/>
 		</form>	
 
 		</div>
