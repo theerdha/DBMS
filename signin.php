@@ -91,9 +91,8 @@
 			<input type = "text" name = "email" placeholder = "Email"><br>
 			<input type = "password" name = "password" type = "password" placeholder = "Password"><br>
 			<button class = "button" type = "submit" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Submit</button>
-			
+			<button class = "button" type = "button" onclick="document.location.href='usertype.php'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
 		</form>	
-		<button class = "button"><a href="usertype.php" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
 		<p style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:top; color: #15632b;display: <?php echo $status ?>;"> Invalid credentials </p>
 	</center>
 </html>
