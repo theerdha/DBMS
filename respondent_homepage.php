@@ -10,8 +10,12 @@
 	$row = $result->fetch_assoc();
 	$name = $row["Name"];
 
-	$query1 = "SELECT c.Complaint_ID, c.Report from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'UNRESOLVED'";								   
+	$query1 = "SELECT c.Complaint_ID, c.Report,c.abscissa, c.ordinate from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'UNRESOLVED'";								   
 	$result1 = mysqli_query($con, $query1);
+
+	$query2 = "SELECT Rating from Respondent as r where r.Adhaar_number = '$id'";
+	$result2 = mysqli_query($con,$query2);
+	$row2 = $result2->fetch_assoc();
 ?>
 <html>
 	<head>
@@ -94,13 +98,14 @@
 	<body style = "font-family:'Cabin Sketch', serif; font-size: 100px; word-spacing: 0px; text-align:top; color: #15632b;"> Swachh KGP<br/>
 	<center>
 		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Welcome <?php echo $name; ?>!</p>
-		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is </p>
+		<p id = "user" style = "font-family:'Cabin Sketch', serif; font-size: 25px; word-spacing: 0px; text-align:center; color: #15632b;">Your current rating is <?php echo $row2['Rating'] ?></p>
 		
 		<table>
 		  <tr>
 			<th>Complaint_ID</th>
 			<th>Report</th>
 			<th>Picture</th>
+			<th>Location</th>
 			<th>Action</th>
 		  </tr>
 		  
@@ -111,9 +116,9 @@
                    <tr>
                    <td><?php echo $cid;?></td>
                    <td><?php echo $row1['Report'];?></td>
-
                    <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
-                   <td><button>Take up</button></td>
+				   <td><?php echo $row1['abscissa'] ; echo ' , ';echo $row1['ordinate'];?></td>                   
+				   <td><button>Take up</button> <button onclick="document.location.href='complete_action.php'">Complete</button></td>
                    </tr>
               <?php  } ?>
 		</table>

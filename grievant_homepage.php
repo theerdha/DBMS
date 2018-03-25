@@ -108,7 +108,9 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {?>
+               while ($row1 = $result1->fetch_assoc()) {
+				$cid = $row1['Complaint_ID'];	
+				?>
                    <tr>
                    <td><?php echo $row1['Complaint_ID'];?></td>
                    <td><?php echo $row1['Report'];?></td>

@@ -12,15 +12,16 @@
 	$row = $result->fetch_assoc();
 	//header("Content-type: image/jpg"); 
 	//echo $row['Photo_pointer1'];
-    echo '
-	<img src="data:image/jpeg;base64,'.base64_encode($row['Photo_pointer1']).'"  alt="Smiley face" height="500" /> 
-	';
 	if($user_type == 0){
 		$target = "respondent_homepage.php?id=$id";
 	}
 	else if($user_type == 1){
 		$target = "grievant_homepage.php?id=$id";	
 	}
+    echo '
+	<img src="data:image/jpeg;base64,'.base64_encode($row['Photo_pointer1']).'"  alt="Smiley face" height="500" /> 
+	';
+	
 ?>
 
 <html>
@@ -98,7 +99,7 @@
 
 	<body>
 	<center>
-		<button class="button" onclick="document.location.href='<?php echo $target?>'">Back
+		<button class="button" onclick="document.location.href='<?php echo $target?>'">	Back
 		</button>
 	</center>
 </html>

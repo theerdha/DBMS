@@ -8,7 +8,10 @@ if (mysqli_connect_errno())
 
 $user_type = $_GET["user_type"];
 $email = $_POST["email"];
-$password = md5($_POST["password"]);
+
+if($user_type == 0 || $user_type == 1)$password = md5($_POST["password"]);
+else $password = $_POST["password"];
+
 $query = NULL;
 if($user_type == 0){
 	$query = "SELECT * from End_User eu where eu.email = '$email' and eu.Password = '$password' and exists(SELECT * from Respondent g where g.Adhaar_number = eu.Adhaar_number)";

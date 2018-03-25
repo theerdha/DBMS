@@ -14,9 +14,8 @@ $aadhaar = $_POST["aadhaar"];
 $password = md5($_POST["password"]);
 $user_type = $_GET['user_type'];
 $type_of_respondent = 'COUNSELLOR';
-
 if($user_type == 0){
-	$type_of_respondent = '$_POST["Type"]';
+	$type_of_respondent = $_POST["Type"];
 }
 
 $query = "SELECT * from End_User eu where eu.Email='$email' OR eu.Adhaar_number='$aadhaar'"; 
@@ -32,7 +31,6 @@ else
 	if($user_type == 0){
 		$query = "INSERT INTO End_User(Adhaar_number, Name, Email, Password) VALUES ('$aadhaar', '$name', '$email', '$password')";
 		mysqli_query($con, $query);
-
 		$query = "INSERT INTO Respondent(Adhaar_number, Type) VALUES ('$aadhaar','$type_of_respondent')";
 		mysqli_query($con, $query);
 	}
@@ -42,7 +40,7 @@ else
 		$query = "INSERT INTO Grievant(Adhaar_number) VALUES('$aadhaar')";
 		mysqli_query($con, $query);
 	}	
-	//header ("Location: signin_with_signup.php?state=2&user_type=$user_type");
+	header ("Location: signin_with_signup.php?state=2&user_type=$user_type");
 }
 
 ?>
