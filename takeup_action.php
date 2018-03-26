@@ -9,10 +9,10 @@
 	}
 		
 	$query = "UPDATE Complaint SET Status = 'PROCESSING' where Complaint_ID = '$CID'"; 
-	//$query1 = "INSERT INTO Resolves VALUES('$id', '$CID')";	
+	$query1 = "INSERT INTO Resolves VALUES('$id', '$CID')";	
 	
 	$result = mysqli_query($con, $query);
-	//$result = mysqli_query($con, $query1);
+	$result = mysqli_query($con, $query1);
 
 	header ("Location: respondent_homepage.php?id=$id");
 
