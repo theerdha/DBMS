@@ -1,17 +1,23 @@
 <?php 
 	$name = $_GET['name'];
+	$state = $_GET['state'];
 	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$query = "SELECT * from End_User eu where eu.Adhaar_number = '$id'";
+	$query = "SELECT * from End_User eu where eu.Adhaar_number = '999999999999'";
 	$result = mysqli_query($con, $query);
 	$row = $result->fetch_assoc();
 	$name = $row["Name"];
+	if($state == 0)$state_type = '%';	
+	else if($state == 1)$state_type = 'RAG_PICKER';
+	else if($state == 3)$state_type = 'COUNSELLOR';
+	else if($state == 2)$state_type = 'MESS_MANAGER';
+
 	$query1 = "SELECT r.Resp_Adhaar_number, c.Type, COUNT(*) as count, resp.Rating 
 	from Resolves r, Complaint c, Respondent resp 
-	where r.Resp_Adhaar_number = resp.Adhaar_number and r.Complaint_ID = c.Complaint_ID 
+	where r.Resp_Adhaar_number = resp.Adhaar_number and r.Complaint_ID = c.Complaint_ID and resp.Type like '$state_type'
 	GROUP BY r.Resp_Adhaar_number,c.Type, resp.Rating";
 	$result1 = mysqli_query($con, $query1);
 ?>
@@ -96,27 +102,32 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {?>
+               while ($row1 = $result1->fetch_assoc()) {$resp_id=$row1['Resp_Adhaar_number']?>
                    <tr>
 				   <td><?php echo $row1['Resp_Adhaar_number'];?></td>
 				   <td><?php echo $row1['Type'];?></td>
                    <td><?php echo $row1['count'];?></td>
                    <td><?php echo $row1['Rating'];?></td>
-                   <td><select name = "Rating">
+                   <td><form action = "rating_update.php?resp_id=<?php echo $resp_id?>&id=999999999999" method = "POST">
+					 <select name = "Rating">
 					  <option value="1">1</option>
 					  <option value="2">2</option>
 					  <option value="3">3</option>
 					  <option value="4">4</option>
 					  <option value="5">5</option>
-				  </select></td>
+				  </select>
+					<button type = "submit">Update</button>
+					</form>
+				 </td>
                    
                    </tr>
               <?php  } ?>
 		</table><br/> <br/>
-		<button class = "button">Analyse Rag Pickers</button>  
-		<button class = "button">Analyse Mess workers</button> 
-		<button class = "button">Analyse Counsellors</button> 
-		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=2&state=0'" >Logout</button> 
+		<button class = "button" onclick="document.location.href='Admin.php?user_type=2&state=1'" >Analyse Rag Pickers</button>  
+		<button class = "button" onclick="document.location.href='Admin.php?user_type=2&state=2'">Analyse Mess workers</button> 
+		<button class = "button" onclick="document.location.href='Admin.php?user_type=2&state=3'">Analyse Counsellors</button> 
+		<button class = "button" onclick="document.location.href='Admin.php?user_type=2&state=0'">Analyse All</button> 
+		<button class = "button" onclick="document.location.href='signin.php?user_type=2&state=0'" >Logout</button> 
 		
 	</center>
 </html>

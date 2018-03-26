@@ -50,7 +50,7 @@ else{
 	elseif($user_type == 1){
 		header ("Location: grievant_homepage.php?id=$aadhaar"); 		
 	}else{		
-		header ("Location: Admin.php?id=$aadhaar"); 
+		header ("Location: Admin.php?id=$aadhaar&state=0"); 
 	}
 }
 ?>
