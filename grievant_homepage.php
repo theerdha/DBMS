@@ -1,7 +1,7 @@
 <?php 
 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 
 	if (mysqli_connect_errno())
 	{
@@ -15,7 +15,8 @@
 	$query1 = "SELECT c.Complaint_ID, c.Report,c.Status,c.Time_stamp1,c.Time_stamp2 from Reports r ,Complaint c where r.Grvnt_Adhaar_number = '$id' and c.Complaint_ID = r.Complaint_ID";
 														  								   
 	$result1 = mysqli_query($con, $query1);
-	
+	$numResults = mysqli_num_rows($result1);
+
 ?>
 <html>
 	<head>
@@ -105,6 +106,7 @@
 			<th>Original Timestamp</th>
 			<th>Final Picture</th>
 			<th>Final Timestamp</th>
+  			<th>Give Rating</th>	   
 		  </tr>
 		  
 			<?php
@@ -119,12 +121,38 @@
 				   <td><?php echo $row1['Time_stamp1'];?></td>
 				   <td><button onclick="document.location.href='view_picture.php?pc_id=2&cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=1'">View Photo</button></td>
   				   <td><?php echo $row1['Time_stamp2'];?></td>
+  				   <td>
+  				   <?php if($row1['Status'] == 'RESOLVED'){
+  				    
+	  				   	$c = (int)$row1['Complaint_ID'];
+						$query2 = "SELECT r.Resp_Adhaar_number 
+						from Resolves r, Respondent resp 
+						where r.Resp_Adhaar_number = resp.Adhaar_number and r.Complaint_ID = $c ";
+
+						$result2 = mysqli_query($con, $query2);
+						$row2 = $result2->fetch_assoc();
+						$numResults_2 = mysqli_num_rows($result2);
+
+					?>
+  				    <form action = "rating_update.php?resp_id=<?php echo $row2['Resp_Adhaar_number']?>&id=<?php echo $id?>&user_type=1" method = "POST">
+						<select name = "Rating">
+					  	<option value="1">1</option>
+						  <option value="2">2</option>
+						  <option value="3">3</option>
+						  <option value="4">4</option>
+						  <option value="5">5</option>
+					    </select>
+						<button type = "submit">Update</button>
+					</form>
+					
+					<?php  } ?>
+                   	</td>
                    </tr>
               <?php  } ?>
 		</table><br/>
 
 		<button class = "button" onclick="document.location.href='new_complaint.php?id=<?php echo $id?>'" >New Complaint</button>  
-		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>'" >Edit Profile</button> 
+		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>&user_type=1'" >Edit Profile</button> 
 		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=1&state=0'" >Logout</button> 
 		
 	</center>

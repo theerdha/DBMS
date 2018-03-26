@@ -1,7 +1,7 @@
 <?php 
 	$name = $_GET['name'];
 	$state = $_GET['state'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -102,13 +102,14 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {$resp_id=$row1['Resp_Adhaar_number']?>
+               while ($row1 = $result1->fetch_assoc()) {
+               	$resp_id=$row1['Resp_Adhaar_number']?>
                    <tr>
 				   <td><?php echo $row1['Resp_Adhaar_number'];?></td>
 				   <td><?php echo $row1['Type'];?></td>
                    <td><?php echo $row1['count'];?></td>
                    <td><?php echo $row1['Rating'];?></td>
-                   <td><form action = "rating_update.php?resp_id=<?php echo $resp_id?>&id=999999999999" method = "POST">
+                   <td><form action = "rating_update.php?resp_id=<?php echo $resp_id?>&id=999999999999&user_type=2" method = "POST">
 					 <select name = "Rating">
 					  <option value="1">1</option>
 					  <option value="2">2</option>
