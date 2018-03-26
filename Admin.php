@@ -102,13 +102,14 @@
 		  </tr>
 		  
 			<?php
-               while ($row1 = $result1->fetch_assoc()) {$resp_id=$row1['Resp_Adhaar_number']?>
+               while ($row1 = $result1->fetch_assoc()) {
+               	$resp_id=$row1['Resp_Adhaar_number']?>
                    <tr>
 				   <td><?php echo $row1['Resp_Adhaar_number'];?></td>
 				   <td><?php echo $row1['Type'];?></td>
                    <td><?php echo $row1['count'];?></td>
                    <td><?php echo $row1['Rating'];?></td>
-                   <td><form action = "rating_update.php?resp_id=<?php echo $resp_id?>&id=999999999999" method = "POST">
+                   <td><form action = "rating_update.php?resp_id=<?php echo $resp_id?>&id=999999999999&user_type=2" method = "POST">
 					 <select name = "Rating">
 					  <option value="1">1</option>
 					  <option value="2">2</option>
