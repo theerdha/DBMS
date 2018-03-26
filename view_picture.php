@@ -1,4 +1,5 @@
-<?php 
+<?php
+	$pc_id = $_GET['pc_id']; 
 	$cid = $_GET['cid'];
 	$id = $_GET['id'];
 	$user_type = $_GET['user_type'];
@@ -12,6 +13,11 @@
 	$row = $result->fetch_assoc();
 	//header("Content-type: image/jpg"); 
 	//echo $row['Photo_pointer1'];
+	$pic_name = 'Photo_pointer1';
+	
+	if($pc_id == 2){
+		$pic_name = 'Photo_pointer2';	
+	}
 	if($user_type == 0){
 		$target = "respondent_homepage.php?id=$id";
 	}
@@ -19,7 +25,7 @@
 		$target = "grievant_homepage.php?id=$id";	
 	}
     echo '
-	<img src="data:image/jpeg;base64,'.base64_encode($row['Photo_pointer1']).'"  alt="Smiley face" height="500" /> 
+	<img src="data:image/jpeg;base64,'.base64_encode($row[$pic_name]).'"  alt="Smiley face" height="500" /> 
 	';
 	
 ?>

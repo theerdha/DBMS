@@ -10,7 +10,7 @@
 	$row = $result->fetch_assoc();
 	$name = $row["Name"];
 
-	$query1 = "SELECT c.Complaint_ID, c.Report,c.abscissa, c.ordinate from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'UNRESOLVED'";								   
+	$query1 = "SELECT c.Status,c.Complaint_ID, c.Report,c.abscissa, c.ordinate from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and (c.Status = 'UNRESOLVED' or c.Status = 'PROCESSING')";								   
 	$result1 = mysqli_query($con, $query1);
 
 	$query2 = "SELECT Rating from Respondent as r where r.Adhaar_number = '$id'";
@@ -106,6 +106,7 @@
 			<th>Report</th>
 			<th>Picture</th>
 			<th>Location</th>
+			<th>Status</th>
 			<th>Action</th>
 		  </tr>
 		  
@@ -116,9 +117,12 @@
                    <tr>
                    <td><?php echo $cid;?></td>
                    <td><?php echo $row1['Report'];?></td>
-                   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
-				   <td><?php echo $row1['abscissa'] ; echo ' , ';echo $row1['ordinate'];?></td>                   
-				   <td><button>Take up</button> <button onclick="document.location.href='complete_action.php'">Complete</button></td>
+                   <td><button onclick="document.location.href='view_picture.php?pc_id=1&cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
+				   <td><?php echo $row1['abscissa'] ; echo ' , ';echo $row1['ordinate'];?></td>   
+				   <td><?php echo $row1['Status'] ?></td>                
+				   <td><button onclick="document.location.href='takeup_action.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>'">Take up</button> 
+					   <button onclick="document.location.href='complete_action.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>'">Complete</button>
+				   </td>
                    </tr>
               <?php  } ?>
 		</table>

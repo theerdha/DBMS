@@ -15,7 +15,7 @@
 	$House_number = $row['House_number'];
 	$Location = $row['Location'];
 
-	if($user_type) { 
+	if($user_type == 0) { 
 		$target	= "respondent_homepage.php?id=$id";
 	}
 	else{

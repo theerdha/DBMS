@@ -109,13 +109,13 @@
                    <tr>
                    <td><?php echo $row['Complaint_ID'];?></td>
                    <td><?php echo $row['Report'];?></td>
-                   <td><button onclick="document.location.href='view_picture.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
+                   <td><button onclick="document.location.href='view_picture.php?pc_id=2&cid=<?php echo $row['Complaint_ID'] ?>&id=<?php echo $id ?>&user_type=0'">View Photo</button></td>
                    
                    </tr>
               <?php  } ?>
 		</table>
 <br/>
-		<button class = "button" type = "button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id?>'" style = "font-family: 'Cabin Sketch'; text-align:left ;font-size: 25px; color: #15632b">Back</a></button><br/>
+		<button class = "button" type = "button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id?>'">Back</a></button><br/>
 		
 		
 	</center>

@@ -1,5 +1,6 @@
 <?php 
 	$id = $_GET['id'];
+	$cid = $_GET['cid'];
 ?>
 <html>
 	<head>
@@ -92,7 +93,7 @@
 		<h3 style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Complaint Report</h3>
 
 
-		<form action = "complete_backend.php?id=<?php echo $id ?>" method = "POST"  enctype="multipart/form-data">
+		<form action = "complete_backend.php?cid=<?php echo $cid ?>&id=<?php echo $id ?>" method = "POST"  enctype="multipart/form-data">
 		
 			<textarea name = "Report" placeholder = "Report"></textarea><br/>		
 			<input type = "file" name="fileToUpload" id="fileToUpload"><br/>

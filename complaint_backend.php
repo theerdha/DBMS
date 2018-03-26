@@ -7,6 +7,7 @@
 	}
 	
 	$image = addslashes(file_get_contents($_FILES['fileToUpload']['tmp_name']));
+	
 	$type = $_POST['Complaint'];
 	$complaint = "";
 	if($type == "Garbage"){
@@ -34,6 +35,7 @@
 	$total = (int)$row['total'];
 	$query = "INSERT INTO Reports(Complaint_ID, Grvnt_Adhaar_number) VALUES($total, '$id')";
 	$result = mysqli_query($con,$query);
+
 	header("Location: grievant_homepage.php?id=$id");
 	
 ?>
