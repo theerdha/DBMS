@@ -1,7 +1,7 @@
 <?php 
 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 
 	if (mysqli_connect_errno())
 	{
@@ -124,7 +124,7 @@
 		</table><br/>
 
 		<button class = "button" onclick="document.location.href='new_complaint.php?id=<?php echo $id?>'" >New Complaint</button>  
-		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>'" >Edit Profile</button> 
+		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>&user_type=1'" >Edit Profile</button> 
 		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=1&state=0'" >Logout</button> 
 		
 	</center>

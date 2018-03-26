@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 if (mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -16,5 +16,5 @@ $password = $_POST["password"];
 
 $query = "UPDATE End_User SET Name = '$name', Date_of_birth='$dob', Age=$age, Location='$location', House_number = '$houseno' WHERE Adhaar_number = '$id'";
 $result = mysqli_query($con,$query); 
-header("Location: editprofile.php?id=$id&user_type=1");
+header("Location: editprofile.php?id=$id&user_type=$user_type");
 ?>

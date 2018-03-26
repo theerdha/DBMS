@@ -98,7 +98,7 @@
 			<textarea name = "Report" placeholder = "Report"></textarea><br/>		
 			<input type = "file" name="fileToUpload" id="fileToUpload"><br/>
 			<button class = "button" type = "submit">Submit</button>
-			<button class = "button">Back</button>
+			<button class = "button" type = "button" onclick="document.location.href='respondent_homepage.php?id=<?php echo $id?>'">Back</a></button><br/>
 		</form>	
 	</center>
 </body>

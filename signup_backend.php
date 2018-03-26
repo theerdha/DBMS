@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost","root","qwerty123","dbms-demo");
+$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 
 if (mysqli_connect_errno())
   {

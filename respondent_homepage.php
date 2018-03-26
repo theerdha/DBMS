@@ -1,6 +1,6 @@
 <?php 
 	$id = $_GET['id'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -127,7 +127,7 @@
               <?php  } ?>
 		</table>
 		<button class = "button" onclick="document.location.href='solved_complaints.php?id=<?php echo $id?>'" >View my solved Complaints</button>  
-		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>'" >Edit Profile</button> 
+		<button class = "button" onclick="document.location.href='editprofile.php?id=<?php echo $id?>&user_type=0>'" >Edit Profile</button> 
 		<button class = "button" onclick="document.location.href='signin_with_signup.php?user_type=0&state=0'" >Logout</button>   
 		
 		

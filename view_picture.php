@@ -3,7 +3,7 @@
 	$cid = $_GET['cid'];
 	$id = $_GET['id'];
 	$user_type = $_GET['user_type'];
-	$con = mysqli_connect("127.0.0.1","root","qwerty123","dbms-demo");
+	$con = mysqli_connect("127.0.0.1","root","Bsaditya@1998","dbms_demo");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -24,8 +24,10 @@
 	else if($user_type == 1){
 		$target = "grievant_homepage.php?id=$id";	
 	}
+	$picture = $row[$pic_name];
+
     echo '
-	<img src="data:image/jpeg;base64,'.base64_encode($row[$pic_name]).'"  alt="Smiley face" height="500" /> 
+	<img src="data:image/jpeg;base64,'.base64_encode($picture).'"  alt="Smiley face" height="500" /> 
 	';
 	
 ?>
