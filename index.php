@@ -38,8 +38,8 @@
 		</style>
 	</head>
 	<body class = "right" style = "font-family:'Nixie One', serif; font-size: 95px; word-spacing: 0px; text-align:center; color: #15632b;">
-		Swachh KGP<br/><br/>
-	
+		Swachh KGP
+	<p style = "font-family:'Nixie One', serif; font-size: 30px; word-spacing: 0px; text-align:center; color: #15632b;"> One step towards cleanliness </p><br/>
 				<a href = "usertype.php"; style = "font-family:'Cabin Sketch', serif; font-size: 50px; word-spacing: 0px; text-align:center; color: #15632b;">Continue</a><br><br>
 				
 	</body>

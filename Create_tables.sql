@@ -28,7 +28,7 @@ CREATE TABLE Respondent(
 Adhaar_number char(12) PRIMARY KEY,
 Working_hours Int DEFAULT 8,
 Rating 		  float(3,2) DEFAULT 0.00,
-Type 		  varchar(10) NOT NULL,
+Type 		  ENUM('COUNSELLOR', 'MESS_WORKER', 'RAG_PICKER'),
 FOREIGN KEY (Adhaar_number) REFERENCES End_User(Adhaar_number)
 );
 
@@ -45,11 +45,12 @@ abscissa       float(8,5)  NOT NULL,
 ordinate       float(8,5)  NOT NULL, 
 Location_tag   varchar(50),
 Status 		   ENUM('UNRESOLVED', 'RESOLVED', 'PROCESSING') DEFAULT 'UNRESOLVED',
-Report 		   varchar(50),
+Report 		   varchar(500),
 Photo_pointer1 longblob, #report photo
 Photo_pointer2 longblob, #Resolved photo
 Time_stamp1    date,
-Time_stamp2    date
+Time_stamp2    date,
+Rating 		  float(3,2) DEFAULT 0.00
 );
 
 CREATE TABLE Reports(
@@ -75,6 +76,10 @@ PRIMARY KEY (Admn_Adhaar_number, Complaint_ID),
 FOREIGN KEY (Admn_Adhaar_number) REFERENCES Administrator(Adhaar_number),
 FOREIGN KEY (Complaint_ID) 		 REFERENCES Complaint(Complaint_ID)
 );
+
+#sudo
+insert into End_User(Email,Password,Adhaar_number) values('sudo@','sudo','999999999999');
+insert into Administrator values('999999999999','sudo');
 
 /*
 #signup
@@ -167,6 +172,9 @@ SELECT r.Resp_Adhaar_number, c.Type, CONCAT(YEAR(c.Time_stamp2), '/', WEEK(c.Tim
 
 #rate_update
 UPDATE Respondent SET Rating = $$$$ WHERE Adhaar_number = $$$$;
+
+
+
  
 /*
 drop table Resolves;
