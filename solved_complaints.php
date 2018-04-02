@@ -6,7 +6,7 @@
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 
-	$query = "SELECT c.Complaint_ID, c.Report from Complaint c where c.Type = (SELECT r.Type from Respondent r where r.Adhaar_number = '$id') and c.Status = 'RESOLVED' ";
+	$query = "SELECT c.Complaint_ID, c.Report from Complaint c, Resolves res where c.Complaint_ID = res.Complaint_ID and res.Resp_Adhaar_number = '$id' and c.Status = 'RESOLVED'";
 
 	//$query = "SELECT * from Complaint ";
 									   

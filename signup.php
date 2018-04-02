@@ -85,7 +85,7 @@
                   <select name = "Type">
 					  <option value="RAG_PICKER">Rag Picker</option>
 					  <option value="COUNSELLOR">Counsellor</option>
-					  <option value="MESS_MANAGER">Mess Manager</option>
+					  <option value="MESS_WORKER">Mess Manager</option>
 				  </select> </br>
               <?php  } ?>
 			<button class = "button" type = "submit" >Submit</button>

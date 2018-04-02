@@ -8,7 +8,7 @@
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-	$report = "SELECT Photo_pointer1 FROM Complaint WHERE Complaint_ID = '$cid'";
+	$report = "SELECT Photo_pointer1, Photo_pointer2 FROM Complaint WHERE Complaint_ID = '$cid'";
 	$result = mysqli_query($con,$report);
 	$row = $result->fetch_assoc();
 	//header("Content-type: image/jpg"); 
